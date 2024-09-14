@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+--><extensioninfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="extensioninfo.xsd">
+        	
+    
+    <extension abstractclassprefix="Generated" classprefix="SpartanmartCore" managername="SpartanmartCoreManager" managersuperclass="de.hybris.platform.jalo.extension.Extension" name="spartanmartcore">
+                		
+        
+        <!-- you should add all required extensions to this list, except platform 
+			extensions which are automatically required -->
+                		
+        
+        <requires-extension name="acceleratorcms"/>
+                		
+        
+        <coremodule generated="true" manager="com.spartan.mart.core.jalo.SpartanmartCoreManager" packageroot="com.spartan.mart.core"/>
+                		
+        
+        		
+	
+    
+    </extension>
+        
+
+</extensioninfo>

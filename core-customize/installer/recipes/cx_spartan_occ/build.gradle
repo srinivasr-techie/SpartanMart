@@ -1,0 +1,131 @@
+apply plugin: 'installer-platform-plugin'
+apply plugin: 'installer-addon2-plugin'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+    }
+}
+
+ext {
+    workDir = "./work"
+}
+
+def platform = platform {
+    localProperties {
+        '# place your custom properties into this file instead of modifying the project.properties'
+        '# all properties in this file have higher priority and will overwrite the platform/project.properties settings.'
+
+        property '#mykey', '#myvalue'
+        property 'hac.webroot', '/hac'
+        property 'recaptcha.publickey', ''
+        property 'recaptcha.privatekey', ''
+        property 'googleApiKey', ''
+
+        property 'initialpassword.admin', 'nimda'
+        property 'auditing.enabled', 'false'
+        property 'website.electronics.http', 'http://electronics.local:9001/spartanmartstorefront'
+        property 'website.electronics.https', 'https://electronics.local:9002/spartanmartstorefront'
+        property 'multicountrysampledataaddon.import.active', 'false'
+        property 'backoffice.solr.search.index.autoinit', 'false'
+    }
+
+    afterSetup {
+        ensureAdminPasswordSet()
+    }
+
+    extensions {
+		// spartacus extensions
+			extName 'spartacussampledata'
+        // api-registry
+            extName 'apiregistrybackoffice'
+            extName 'apiregistryservices'
+        // b2c-accelerator
+            extName 'electronicsstore'
+        // base-accelerator
+            extName 'spartanmartbackoffice'
+            extName 'spartanmartcore'
+            extName 'spartanmartfacades'
+            extName 'spartanmartinitialdata'
+            extName 'spartanmartocc'
+			extName 'spartanmartpromotionengineservices'
+			extName 'spartanmartpromotionenginebackoffice'
+		// sample-data
+			extName 'promotionenginesamplesaddon'
+		// core-accelerator
+            extName 'acceleratorbackoffice'
+            extName 'acceleratorcms'
+            extName 'acceleratorfacades'
+            extName 'acceleratorocc'
+            extName 'acceleratorservices'
+        // commerce-services
+            extName 'commercefacades'
+            extName 'commerceservices'
+            extName 'commerceservicesbackoffice'
+        // search-and-navigation
+            extName 'backofficesolrsearch'
+            extName 'solrfacetsearch'
+            extName 'solrfacetsearchbackoffice'
+            extName 'solrserver'
+        // web-content-management-system
+            extName 'cms2'
+            extName 'cms2lib'
+            extName 'cmsbackoffice'
+            extName 'cmsfacades'
+			extName 'cmsocc'
+    }
+}
+
+task createStoreFrontExt {
+    doLast {
+        def prePlatform = platformFactory.createPlatform()
+        prePlatform.createConfigDirIfNotExist()
+        prePlatform.resetConfig()
+    }
+}
+
+task setup(dependsOn: createStoreFrontExt) {
+    doLast {
+        platform.setup()
+    }
+}
+
+task buildSystem(dependsOn: setup) {
+    doLast {
+        platform.build()
+    }
+}
+
+task initialize(dependsOn: buildSystem) {
+    doLast {
+        platform.initialize()
+    }
+}
+
+task update(dependsOn: buildSystem) {
+    doLast {
+        platform.update()
+    }
+}
+
+task start {
+    doLast {
+        platform.start()
+    }
+}
+
+task startInBackground {
+    doLast {
+        platform.startInBackground()
+    }
+}
+
+task stopInBackground {
+    doLast {
+        platform.stopInBackground()
+    }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+ Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
+--><extensioninfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="extensioninfo.xsd">
+           
+    
+    <extension abstractclassprefix="Generated" classprefix="Spartanmartpromotionengineservices" jaloLogicFree="true" managername="SpartanmartpromotionengineservicesManager" managersuperclass="de.hybris.platform.jalo.extension.Extension" name="spartanmartpromotionengineservices" usemaven="false">
+                  
+
+      
+        
+        <coremodule generated="true" manager="com.spartan.mart.promotionengine.services.jalo.SpartanmartpromotionengineservicesManager" packageroot="com.spartan.mart.promotionengine.services"/>
+                	
+        
+           
+    
+    </extension>
+        
+
+</extensioninfo>
