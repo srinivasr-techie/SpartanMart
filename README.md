@@ -2,9 +2,15 @@
 SAP Commerce Cloud 2211 spartacus storefront
 
 # Below are the sample sym links created for the repo to SAP Commerce suite
+# Windows
 mklink /J "D:\Hybris\SpartanMart\2211\hybris\bin\custom" "D:\Hybris\SpartanMart\Repo\core-customize\hybris\bin\custom"
 mklink /J "D:\Hybris\SpartanMart\2211\installer\recipes\cx_spartan_occ" "D:\Hybris\SpartanMart\Repo\core-customize\installer\recipes\cx_spartan_occ"
 mklink "D:\Hybris\SpartanMart\2211\installer\customconfig\custom.properties" "D:\Hybris\SpartanMart\Repo\core-customize\hybris\bin\custom\spartacussampledata\resources\installer\customconfig\custom.properties"
+
+# Mac
+ln -s /Users/srreddy/SpartanMart/Code/SpartanMart/core-customize/hybris/bin/custom /Users/srreddy/SpartanMart/2211/hybris/bin/custom
+ln -s /Users/srreddy/SpartanMart/Code/SpartanMart/core-customize/installer/recipes/cx_spartan_occ /Users/srreddy/SpartanMart/2211/installer/recipes/cx_spartan_occ
+ln /Users/srreddy/SpartanMart/Code/SpartanMart/core-customize/hybris/bin/custom/spartacussampledata/resources/installer/customconfig/custom.properties /Users/srreddy/SpartanMart/2211/installer/customconfig/custom.properties
 
 # OCC Credentials
 INSERT_UPDATE OAuthClientDetails;clientId[unique=true]    ;resourceIds       ;scope        ;authorizedGrantTypes                                            ;authorities             ;clientSecret    ;registeredRedirectUri
