@@ -78,6 +78,8 @@ def platform = platform {
             extName 'cmsfacades'
 			extName 'cmsocc'
     }
+
+    addons {}
 }
 
 task createStoreFrontExt {
